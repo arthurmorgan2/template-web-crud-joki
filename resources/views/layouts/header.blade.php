@@ -27,7 +27,7 @@
     <section class="header-content container-fluid bg-warning">
         <div class="w-full text-center py-3">
             <div class="fs-1 fw-bold">
-                Bangun Saputra
+                Pengelolaan Data Guru
             </div>
         </div>
     </section>
