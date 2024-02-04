@@ -176,16 +176,16 @@
     </div>
 </div>
 @endforeach
+
+{{-- Inisialisasi Cropper --}}
 <script>
     $(document).ready(function () {
-        // Initialize Cropper.js
         const image = document.getElementById('image-preview');
         const cropper = new Cropper(image, {
-            aspectRatio: 1, // Set the aspect ratio as needed
-            viewMode: 2,    // Adjust the view mode as needed
+            aspectRatio: 1,
+            viewMode: 2,
         });
 
-        // Handle image preview
         $('#foto').change(function () {
             const input = this;
             const reader = new FileReader();
@@ -199,22 +199,18 @@
             reader.readAsDataURL(input.files[0]);
         });
 
-        // Handle form submission
         $('form').submit(function (e) {
             e.preventDefault();
 
-            // Get the cropped data
             const canvas = cropper.getCroppedCanvas();
             const croppedDataUrl = canvas.toDataURL('image/jpeg');
 
-            // Append the cropped data to the form
             $('<input>').attr({
                 type: 'hidden',
                 name: 'cropped_image',
                 value: croppedDataUrl,
             }).appendTo('form');
 
-            // Submit the form
             this.submit();
         });
     });
